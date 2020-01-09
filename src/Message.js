@@ -8,17 +8,24 @@ import {
   FormHelperText
 } from "@material-ui/core";
 
+
+import "./Message.css";
+
+
 class Message extends Component {
+   
 
 
   render() {
+   
     return (
       <div>
       <Card variant="outlined" className="card">
           <FormControl>
             <InputLabel htmlFor="my-input">Email address</InputLabel>
             <Input id="my-input" aria-describedby="my-helper-text" />
-            <Button variant="contained" color="primary">
+            <Button className="ml-5 ml-lg-0"
+            variant="contained" color="primary" className="mainbutton">
               Primary
             </Button>
             
