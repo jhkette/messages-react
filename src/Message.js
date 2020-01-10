@@ -15,8 +15,18 @@ import "./Message.css";
 
 class Message extends Component {
 
-    state = {
-      showmessage: false
+    constructor(props) {
+        super(props);
+        this.state = {value: '',
+        showmessage: false };
+    
+        this.handleChange = this.handleChange.bind(this);
+        
+    }
+
+    handleChange (event) {
+        this.setState({value: event.target.value});
+        console.log(this.state.value)
     }
     
     render() {
@@ -28,9 +38,10 @@ class Message extends Component {
             <div className="spacing">
                 <FormControl>
                    
-                    <InputLabel htmlFor="my-input">Email address
+                    <InputLabel htmlFor="my-input">Message
                     </InputLabel>
-                    <Input id="my-input" aria-describedby="my-helper-text" />
+                    <Input id="my-input" aria-describedby="my-helper-text" 
+                    onChange={this.handleChange} />
                     
                     <div className="spacing1">
                     <Button 
@@ -38,6 +49,7 @@ class Message extends Component {
                     variant="contained" 
                     color="primary" 
                     className="mainbutton"
+                    onSubmit={this.handleSubmit}
                    >
                     Primary
                     </Button>
@@ -51,15 +63,15 @@ class Message extends Component {
                 </FormControl>
                 </div>
             </Card>
-            {this.state.showmessage &&
+            {/* {this.state.showmessage && */}
             <Card variant="outlined" className="card">
                 <FormControl>
                     <div className="spacing">
-                    <Input id="message" />
+                    <Input id="message"   value={this.state.value} />
                     </div>
                 </FormControl>
             </Card>
-            }
+            {/* } */}
         </div>
     )
   }
